@@ -3,6 +3,7 @@ class Offer < ApplicationRecord
 
   has_many :reviews
   belongs_to :user
+  has_one_attached :photo
   validates :title, presences: true, length: { minimum: 50 }
   validates :description, presences: true
   validates :localisation, presences: true, length: { minimum: 50 }
