@@ -1,6 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  .nav-img:hover {
+    transform: rotate(90deg);
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
