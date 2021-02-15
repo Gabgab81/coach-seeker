@@ -1,5 +1,7 @@
 class Offer < ApplicationRecord
   DISC = ["Volley", "Poker", "Belotte"]
+
+  has_many :reviews
   belongs_to :user
   validates :title, presences: true, length: { minimum: 50 }
   validates :description, presences: true
