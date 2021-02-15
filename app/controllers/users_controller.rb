@@ -5,5 +5,4 @@ class UsersController < ApplicationController
     raise
   end
 
-
 end
