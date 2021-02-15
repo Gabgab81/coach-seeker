@@ -1,5 +1,20 @@
-<h1>user show</h1>
-
-<h2><%= @users.username %>  </h2>
-
-<p> <%= @users.address %> </p> 
+<div class="container">
+  <div class="grid-container">
+    <div class="item1">
+      <h2>Bonjour <%= @user.username %>, comment allez vous?  </h2>
+    </div>
+    <div class="item2">
+      <p>Email: <%= @user.email %> </p> 
+      <p>Address: <%= @user.address %> </p> 
+      <p>Phone number: <%= @user.phone_number %> </p> 
+      <p>Birthday date: <%= @user.birth_date %> </p> 
+      <p>Votre présentation: </p> 
+      <p><%= @user.address %> </p> 
+    <%= link_to 'Edit', edit_user_registration_path(@user) %>
+    <%= link_to 'home', root_path %>
+    <%= link_to 'log out', destroy_user_session_path %>
+    </div>
+    <div class="item3">seances</div>
+    <div class="item4">reviews</div>
+  </div>
+</div>

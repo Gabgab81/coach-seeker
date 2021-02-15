@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @users = User.all
-    raise
+    @user = current_user if user_signed_in?
   end
 
 end
