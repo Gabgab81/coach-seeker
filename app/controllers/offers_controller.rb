@@ -28,7 +28,11 @@ class OffersController < ApplicationController
   end
 
   def show
-  @offer = Offer.find(params[:id])
+    @offer = Offer.find(params[:id])
+  end
+
+  def my_courses
+    @offers = Offer.where(user_id: current_user.id)
   end
 
   private
