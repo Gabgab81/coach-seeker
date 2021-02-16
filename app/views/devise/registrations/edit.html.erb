@@ -35,6 +35,11 @@
     <%= f.input :presentation,
                 required: false %>
     </div>
+    </div>
+    <div class="input">
+    <%= f.input :photo, as: :file,
+                required: false %>
+    </div>
     <div class="input">
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
