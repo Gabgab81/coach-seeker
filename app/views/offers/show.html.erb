@@ -49,6 +49,10 @@
 
 <div class="container card-offer">
   <% @offer.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
+      <li class="list-group-item">
+        <%= review.content %>
+         Rating :<%= review.rating %>/10
+        Posted by : <%= review.user.username %> on : <%= review.created_at.strftime("%d %m %Y") %>
+      </li>
   <% end %>
 </div>
