@@ -6,10 +6,10 @@
     <div class="item2">
       <p>Email: <%= @user.email %> </p> 
       <p>Address: <%= @user.address %> </p> 
-      <p>Phone number: <%= @user.phone_number %> </p> 
+      <p>Phone number: <%= @user.phone %> </p> 
       <p>Birthday date: <%= @user.birth_date %> </p> 
       <p>Votre présentation: </p> 
-      <p><%= @user.address %> </p> 
+      <p><%= @user.presentation %> </p> 
     <%= link_to 'Edit', edit_user_registration_path(@user) %>
     <%= link_to 'home', root_path %>
     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
