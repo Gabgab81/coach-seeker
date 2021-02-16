@@ -13,11 +13,19 @@
     <div>
       <p><%= @offer.discipline  %></p>
     </div>
+
     <div>
-      <p><%= @offer.user.email  %></p>
+      <%= cl_image_tag @offer.user.photo.key, height: 200, width: 200, crop: :fill %>
     </div>
     <div>
-      <p><%= @offer.discipline  %></p>
+      <p><%= @offer.user.username  %></p>
+    </div>
+    <div>
+      <p>Number of courses :</p>
+      <p><%= Offer.where(user_id: 1).count  %></p>
+    </div>
+    <div>
+      <p><%= @offer.user.email  %></p>
     </div>
 
 
@@ -31,5 +39,4 @@
     </div>
     </div>
   </div>
-
-
+</div>
