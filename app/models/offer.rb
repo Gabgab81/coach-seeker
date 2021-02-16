@@ -1,7 +1,7 @@
 require 'csv'
 
 class Offer < ApplicationRecord
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   belongs_to :user
   has_one_attached :photo
   has_rich_text :description

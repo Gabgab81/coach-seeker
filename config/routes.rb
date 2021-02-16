@@ -6,5 +6,6 @@ Rails.application.routes.draw do
       collection do
         get :my_courses
     end
+      resources :reviews, only: [ :new, :create ]
   end
 end
