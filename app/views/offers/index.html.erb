@@ -7,8 +7,10 @@
         <p><%= offer.description %></p>
         <span><%= offer.localisation %></span>
         <p><%= offer.discipline %></p>
+        <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
         <%= link_to "See more", offer_path(offer)  %>
         <% end %>
     </div>
 
 </div>
+
