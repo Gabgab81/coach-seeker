@@ -7,19 +7,19 @@
       <p><%= @offer.description  %></p>
     </div>
     <div class="card-info">
-    <div>
-      <p><%= @offer.localisation  %></p>
+      <div>
+        <p><%= @offer.localisation  %></p>
+      </div>
+      <div>
+        <p><%= @offer.discipline  %></p>
+      </div>
+      <div>
+        <p><%= @offer.user.email  %></p>
+      </div>
+      <div>
+        <p><%= @offer.discipline  %></p>
+      </div>
     </div>
-    <div>
-      <p><%= @offer.discipline  %></p>
-    </div>
-    <div>
-      <p><%= @offer.user.email  %></p>
-    </div>
-    <div>
-      <p><%= @offer.discipline  %></p>
-    </div>
-
 
     <div class="card-link">
       <%= link_to edit_offer_path(@offer) do  %>
@@ -29,7 +29,7 @@
       <%= icon('fas', 'home') %>
       <% end %>
     </div>
-    </div>
   </div>
+</div>
 
 
