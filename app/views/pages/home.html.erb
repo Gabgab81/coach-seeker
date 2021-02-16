@@ -1,13 +1,35 @@
 <div class="landing-img">
   <h1>Coach Seeker</h1>
-  <h3>Where Sports meets !</h3>
-  <%= link_to "Want to know more ?", root_path, class: 'btn btn-primary'  %>
+  <h3>Find your coach</h3>
+  <%= link_to "Find a coach", offers_path, class: 'btn-purple'  %>
+  <%= link_to "Become a coach", new_offer_path, class: 'btn-purple' %>
 </div>
 
-<h2>Welcome to Coeach Seeker</h2>
-<p>If you want to learn a new discipline or you are already an expert wishing to teach people, you are in the right place ! Coach Seeker is a place when student and teacher can meet to make appointement for a teaching lesson !</p>
+<div class="container">
+<center><h2>Welcome to Coach Seeker</h2>
+<p>If you want to learn a new discipline or you are already an expert wishing to teach people, you are in the right place ! Coach Seeker is a place when student and teacher can meet to make appointement for a teaching lesson !</p></center>
+</div>
 
-<%= link_to "See offers", offers_path %>
-<%= link_to "Create a new offer", new_offer_path %>
+<div class="container card-container-home">
+  <div class="card-home">
+    <%= image_tag "start-training.jpg", alt: "logo", class: "img-card-home" %>
+    <div class="card-home-info">
+      <h2>Find a coach</h2>
+      <p>Find the right coach for your needs ! Explore our courses and find the right coach, then book a coaching session ! </p>
+      <div class="btn-div">
+        <%= link_to "See offers", offers_path, class: 'btn-purple'  %>
+      </div>
+    </div>
+  </div>
 
-
+  <div class="card-home">
+    <%= image_tag "become-coach.jpg", alt: "logo", class: "img-card-home" %>
+    <div class="card-home-info">
+      <h2>Become a coach</h2>
+      <p>Share your knowledge with beginners ! Post your coaching offering and become a coach today !</p>
+      <div class="btn-div">
+        <%= link_to "Create offer", new_offer_path, class: 'btn-purple' %>
+      </div>
+     </div>
+  </div>
+</div>
