@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>All offers</h2>
+
+    <% @offers.each do |offer| %>
+      <div class="card">
+        <h3><%= offer.title %></h3>
+        <p><%= offer.description %></p>
+        <span><%= offer.localisation %></span>
+        <p><%= offer.discipline %></p>
+        <%= link_to "See more", offer_path(@offers.id)  %>
+        <!-- <span><%= offer.user.name %></span> -->
+      <% end %>
+    </div>
+
+</div>
