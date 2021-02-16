@@ -1,16 +1,36 @@
-<h1> <%= @offer.title  %></h1>
-<h1><%= @offer.description  %></h1>
-<h1><%= @offer.localisation  %></h1>
-<h1><%= @offer.discipline  %></h1>
-<%= cl_image_tag @offer.photo.key, height: 500, width: 500, crop: :fill %>
-<%= link_to new_offer_path(@offer) do  %>
-<%= icon('fas', 'plus') %> |
-<% end %>
-<%= link_to edit_offer_path(@offer) do  %>
-<%= icon('fas', 'edit') %> |
-<% end %>
+<div class="container card-offer">
+  <div class="card-img" style="background-image: linear-gradient(rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)), url('<%= cl_image_path @offer.photo.key, height: 400, width: 1000, crop: :fill %>')">
+    <h1> <%= @offer.title %></h1>
+  </div>
+  <div class="card-text">
+    <div class="card-description">
+      <p><%= @offer.description  %></p>
+    </div>
+    <div class="card-info">
+    <div>
+      <p><%= @offer.localisation  %></p>
+    </div>
+    <div>
+      <p><%= @offer.discipline  %></p>
+    </div>
+    <div>
+      <p><%= @offer.user.email  %></p>
+    </div>
+    <div>
+      <p><%= @offer.discipline  %></p>
+    </div>
 
-<%= link_to root_path do  %>
-<%= icon('fas', 'home') %> |
-<% end %>
->>>>>>> master
+    <div class="card-link">
+      <%= link_to edit_offer_path(@offer) do  %>
+      <%= icon('fas', 'edit') %> |
+      <% end %>
+      <%= link_to root_path do  %>
+      <%= icon('fas', 'home') %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,10 +1,11 @@
 <div class="container">
 <%= simple_form_for(offer) do |f| %>
   <%= f.input :title %>
-  <%= f.input :description %>
+  <%# <%= f.input :description %> %>
+  <%= f.rich_text_area :description %>
   <%= f.input :localisation %>
   <%= f.input :discipline, collection: ["Volley", "Poker", "Belotte"], prompt: "Choose a sport" %>
   <%= f.input :photo, as: :file %>
-  <%= f.submit "C'est ok ? validez !" %>
+  <%= f.submit "C'est ok ? validez !", class: "btn btn-primary w-100" %>
 <% end %>
 </div>
