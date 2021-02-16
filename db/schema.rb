@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 2021_02_15_164546) do
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "offer_id", null: false
+    t.integer "rating"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_id"], name: "index_reviews_on_offer_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -85,6 +96,11 @@ ActiveRecord::Schema.define(version: 2021_02_15_164546) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username", null: false
+    t.string "address", null: false
+    t.text "presentation", null: false
+    t.string "phone", null: false
+    t.date "birth_date", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -95,4 +111,6 @@ ActiveRecord::Schema.define(version: 2021_02_15_164546) do
   add_foreign_key "messages", "coachings"
   add_foreign_key "messages", "users"
   add_foreign_key "offers", "users"
+  add_foreign_key "reviews", "offers"
+  add_foreign_key "reviews", "users"
 end

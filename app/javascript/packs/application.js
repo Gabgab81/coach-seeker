@@ -36,3 +36,11 @@ document.addEventListener('turbolinks:load', () => {
 
 require("trix")
 require("@rails/actiontext")
+
+
+// const phone_number = document.querySelector(".tel");
+// phone_number.addEventListener("input", (event) => {
+//   console.log(event);
+//   console.log(event.data);
+//   console.log(phone_number.value);
+// });

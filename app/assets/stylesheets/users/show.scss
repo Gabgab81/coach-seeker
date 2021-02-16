@@ -1,0 +1,29 @@
+.item1 { 
+  grid-area: header;
+  font-size: 25px;
+}
+.item2 { 
+  grid-area: profile; 
+  height: 600px;
+}
+.item3 { grid-area: seances; }
+.item4 { grid-area: reviews; }
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'profile profile profile seances seances seances'
+    'profile profile profile reviews reviews reviews';
+  grid-gap: 15px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.grid-container > div {
+  background-color: rgba(184, 184, 184, 0.226);
+  padding: 20px 20px;
+  border-radius: 20px;
+}
