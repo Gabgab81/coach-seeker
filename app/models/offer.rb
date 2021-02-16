@@ -7,10 +7,10 @@ class Offer < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, presence: true
   validates :localisation, presence: true, length: { maximum: 50 }
-  validates :discipline, presence: true, inclusion: { in: sports,
+  validates :discipline, presence: true, inclusion: { in: ["Volley", "Poker", "Belotte"],
     message: "%{value} is not a valid discipline" }
 
-  def self.sports
-    ["Volley", "Poker", "Belotte"]
-  end
+  # def self.sports
+  #   ["Volley", "Poker", "Belotte"]
+  # end
 end
