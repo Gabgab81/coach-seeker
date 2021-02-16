@@ -3,11 +3,7 @@ class OffersController < ApplicationController
   def index
     @offers = Offer.all
   end
-<<<<<<< HEAD
   
-=======
-
->>>>>>> master
   def new
     @offer = Offer.new
   end
