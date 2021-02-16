@@ -1,13 +1,27 @@
 .item1 { 
   grid-area: header;
   font-size: 25px;
+  text-align: center;
 }
 .item2 { 
   grid-area: profile; 
   height: 600px;
+  
 }
-.item3 { grid-area: seances; }
-.item4 { grid-area: reviews; }
+.item3 { 
+  grid-area: seances;
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin: 20px;
+ }
+.item4 { 
+  grid-area: reviews; 
+  box-shadow: 0 10px 30px rgba(0,0,0,.05);
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin: 20px;
+}
 
 
 .grid-container {
@@ -20,10 +34,18 @@
   background-color: white;
   padding: 10px;
   border-radius: 20px;
+  
 }
 
 .grid-container > div {
-  background-color: rgba(184, 184, 184, 0.226);
   padding: 20px 20px;
   border-radius: 20px;
+}
+
+.profile-edit-home-logout{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px;
 }
