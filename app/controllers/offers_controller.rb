@@ -1,4 +1,9 @@
 class OffersController < ApplicationController
+
+  def index
+    @offers = Offer.all
+  end
+
   def new
     @offer = Offer.new
   end
@@ -40,5 +45,4 @@ class OffersController < ApplicationController
   def offer_params
     params.require(:offer).permit(:title, :description, :localisation, :photo, :discipline)
   end
-
 end

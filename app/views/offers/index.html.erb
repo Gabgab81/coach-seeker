@@ -7,9 +7,8 @@
         <p><%= offer.description %></p>
         <span><%= offer.localisation %></span>
         <p><%= offer.discipline %></p>
-        <%= link_to "See more", offer_path(@offers.id)  %>
-        <!-- <span><%= offer.user.name %></span> -->
-      <% end %>
+        <%= link_to "See more", offer_path(offer)  %>
+        <% end %>
     </div>
 
 </div>
