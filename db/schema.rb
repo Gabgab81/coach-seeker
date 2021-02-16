@@ -10,13 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_02_15_164546) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -47,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_164546) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "coachings", force: :cascade do |t|
     t.date "coaching_date"
@@ -90,7 +88,6 @@ ActiveRecord::Schema.define(version: 2021_02_15_164546) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "coachings", "offers"
