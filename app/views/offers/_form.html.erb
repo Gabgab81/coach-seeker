@@ -1,0 +1,10 @@
+<div class="container">
+<%= simple_form_for(offer) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :localisation %>
+  <%= f.input :discipline, collection: ["Volley", "Poker", "Belotte"], prompt: "Choose a sport" %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "C'est ok ? validez !" %>
+<% end %>
+</div>
