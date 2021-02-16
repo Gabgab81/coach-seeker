@@ -1,0 +1,27 @@
+.bottom-button-link{
+  // background-color: aqua;
+  
+  .form-actions{
+    text-align: center;
+    .btn-purple{
+      width: 150px;
+    }
+  }
+  .signup-forgot{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    #sign-up-sign-in{
+      padding-left: 80px;
+      color: black;
+    }
+    #forgot-password{
+      padding-left: 120px;
+      color: black;
+    }
+  }
+}
+
+.input-remember{
+ padding-left: 30px;
+}
