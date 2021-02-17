@@ -1,0 +1,20 @@
+<h1>show de coaching</h1>
+
+<% if @coaching.validation === 0 %>
+  <p>The offre: <%= @offer.title %> is waiting for validation</p>
+  <% if @offer.user_id == current_user.id %>
+    <%= link_to "Accept",
+                  accept_offer_coaching_path(@offer, @coaching),
+                  method: :patch,
+                  data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+    <%= link_to "Refuse",
+                  refuse_offer_coaching_path(@offer, @coaching),
+                  method: :patch,
+                  data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+  <% end %>
+<% elsif @coaching.validation === 1 %>
+  <p>The offre: <%= @offer.title %> is validate</p>
+<% elsif @coaching.validation === 2 %>
+  <p>The offre: <%= @offer.title %> is not validate</p>
+<% end %>  
+<%= link_to 'Back', root_path %>
