@@ -24,7 +24,7 @@ class OffersController < ApplicationController
   end
 
   def update
-    # sports_list = Offer.sports_list
+    sports_list = Offer.sports_list
     @offer = Offer.find(params[:id])
     if @offer.update(offer_params)
       redirect_to offer_path(@offer)
@@ -39,6 +39,7 @@ class OffersController < ApplicationController
 
   def my_courses
     @offers = Offer.where(user_id: current_user.id)
+    render :index
   end
 
   private
