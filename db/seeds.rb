@@ -26,14 +26,14 @@ puts "Creating 40 users"
   end
 end
 
-puts "Creating review"
-100.times do
-  review = Review.new(
-    content: Faker::Lorem.paragraph,
-    content: Faker::Lorem.paragraph(sentence_count: 2),
-    rating: (1..10).to_a.sample,
-    user_id: (1..20).to_a.sample,
-    offer_id: (1..60).to_a.sample
-  )
-  review.save!
-end
+# puts "Creating review"
+# 100.times do
+#   review = Review.new(
+#     content: Faker::Lorem.paragraph,
+#     content: Faker::Lorem.paragraph(sentence_count: 2),
+#     rating: (1..10).to_a.sample,
+#     user_id: (1..20).to_a.sample,
+#     offer_id: (1..60).to_a.sample
+#   )
+#   review.save!
+# end
