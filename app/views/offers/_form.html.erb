@@ -1,11 +1,13 @@
-<div class="container">
-<%= simple_form_for(offer) do |f| %>
-  <%= f.input :title %>
-  <%= f.rich_text_area :description %>
-  <%= f.input :localisation %>
-  <%= f.input :discipline, collection: ["Volley", "Poker", "Belotte"], prompt: "Choose a sport" %>
-  <%# <%= f.input :discipline, collection: Offer.sports_list, prompt: "Choose a sport" %> %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "C'est ok ? validez !", class: "btn btn-primary w-100" %>
-<% end %>
+<div class="background_img">
+  <div class="container container-form p-3">
+  <%= simple_form_for(offer) do |f| %>
+    <%= f.input :title %>
+    <%= f.rich_text_area :description %>
+    <%= f.input :localisation %>
+    <%# <%= f.input :discipline, collection: ["Volley", "Poker", "Belotte"], prompt: "Choose a sport" %> %>
+    <%= f.input :discipline, collection: Offer.sports_list, prompt: "Choose a sport" %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "C'est ok ? validez !", class: "btn-purple" %>
+  <% end %>
+  </div>
 </div>

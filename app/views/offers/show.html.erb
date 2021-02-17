@@ -7,53 +7,52 @@
       <p><%= @offer.description  %></p>
       <%= link_to 'Select offer', new_offer_coaching_path(@offer) %>
     </div>
-    <div class="card-info">
 
-    <div>
-      <p><%= @offer.localisation  %></p>
-    </div>
-    <div>
-      <p><%= @offer.discipline  %></p>
-    </div>
+  <div class="card-info">
+      <div>  display: box;
+        <p><%= @offer.localisation  %></p>
+      </div>
+      <div>
+        <p><%= @offer.discipline  %></p>
+      </div>
 
-    <div>
-      <%= cl_image_tag @offer.user.photo.key, height: 200, width: 200, crop: :fill %>
-    </div>
-    <div>
-      <p><%= @offer.user.username  %></p>
-    </div>
-    <div>
-      <p>Number of courses :</p>
-      <p><%= Offer.where(user_id: current_user).count  %></p>
-    </div>
-    <!-- <div>
-      <p>Number of reviews > 7 :</p>
-      <%# <p><%= Review.where(["offer_id = @offer.id, rating >= 7"]).count  %></p> %>
-    </div> -->
-    <div>
-      <p><%= @offer.user.email  %></p>
-    </div>
-    <div>
-      <%= link_to 'Leave a review', new_offer_review_path(@offer) %>
-    </div>
+      <div>
+        <%= cl_image_tag @offer.user.photo.key, height: 200, width: 200, crop: :fill %>
+      </div>
+      <div>
+        <p><%= @offer.user.username  %></p>
+      </div>
+      <div>
+        <p>Number of courses :</p>
+        <p><%= Offer.where(user_id: current_user).count  %></p>
+      </div>
 
-    <div class="card-link">
-      <%= link_to edit_offer_path(@offer) do  %>
-      <%= icon('fas', 'edit') %> |
-      <% end %>
-      <%= link_to root_path do  %>
-      <%= icon('fas', 'home') %>
-      <% end %>
+      <div>
+        <p><%= @offer.user.email  %></p>
+      </div>
+      <div>
+        <%= link_to 'Leave a review', new_offer_review_path(@offer), class: "btn-purple" %>
+      </div>
+
+      <div class="card-link purple-color pt-2">
+        <%= link_to edit_offer_path(@offer) do  %>
+        <%= icon('fas', 'edit')  %> |
+        <% end %>
+        <%= link_to root_path do  %>
+        <%= icon('fas', 'home') %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="container card-offer">
-  <% @offer.reviews.each do |review| %>
-      <li class="list-group-item">
-        <%= review.content %>
-         Rating :<%= review.rating %>/10
-        Posted by : <%= review.user.username %> on : <%= review.created_at.strftime("%d %m %Y") %>
-      </li>
-  <% end %>
+  <div class="card-offer w-100">
+    <% @offer.reviews.each do |review| %>
+        <li class="list-group-item">
+          <p><%= review.content %></p>
+          <div id="review-data">
+            Rating :<%= review.rating %>/10
+            Posted by : <%= review.user.username %> on : <%= review.created_at.strftime("%d %m %Y") %>
+          </div>
+        </li>
+    <% end %>
+  </div>
 </div>

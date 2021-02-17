@@ -1,7 +1,11 @@
-  <div class="container">
-    <%= simple_form_for [ @offer, @review ] do |f| %>
-      <%= f.rich_text_area :content %>
-      <%= f.input :rating, collection: (1..10).to_a, prompt: "Choose a rating, 1 bad, 10 perfect" %>
-      <%= f.submit "Submit review", class: "btn btn-primary" %>
-    <% end %>
+  <div class="background_img">
+    <div class="container p-3">
+      <div class="container-form p-3">
+        <%= simple_form_for [ @offer, @review ] do |f| %>
+          <%= f.rich_text_area :content %>
+          <%= f.input :rating, collection: (1..10).to_a, prompt: "Choose a rating, 1 bad, 10 perfect"%>
+          <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   </div>
