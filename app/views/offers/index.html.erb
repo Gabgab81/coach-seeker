@@ -4,7 +4,11 @@
     <% @offers.each do |offer| %>
       <div class="card-index">
         <div class="image-card-index">
-          <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
+          <% if offer.photo.attached? %>
+                <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%= image_tag("COACH SEEKER.png") %>
+              <% end %>
         </div>
         <div class="info-card-index">
           <div class="text-card-index">
