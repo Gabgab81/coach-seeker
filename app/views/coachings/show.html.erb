@@ -6,11 +6,11 @@
     <%= link_to "Accept",
                   accept_offer_coaching_path(@offer, @coaching),
                   method: :patch,
-                  data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+                  data: { confirm: "Are you sure?" }, class: "btn-purple" %>
     <%= link_to "Refuse",
                   refuse_offer_coaching_path(@offer, @coaching),
                   method: :patch,
-                  data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+                  data: { confirm: "Are you sure?" }, class: "btn-purple" %>
   <% end %>
 <% elsif @coaching.validation === 1 %>
   <p>The offre: <%= @offer.title %> is validate</p>
