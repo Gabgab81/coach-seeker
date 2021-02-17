@@ -6,9 +6,9 @@
     <div class="card-description">
       <p><%= @offer.description  %></p>
     </div>
-  </div>
+
   <div class="card-info">
-      <div>
+      <div>  display: box;
         <p><%= @offer.localisation  %></p>
       </div>
       <div>
@@ -42,16 +42,16 @@
         <% end %>
       </div>
     </div>
-</div>
-
-<div class="card-offer w-100">
-  <% @offer.reviews.each do |review| %>
-      <li class="list-group-item">
-        <p><%= review.content %></p>
-        <div id="review-data">
-          Rating :<%= review.rating %>/10
-          Posted by : <%= review.user.username %> on : <%= review.created_at.strftime("%d %m %Y") %>
-        </div>
-      </li>
-  <% end %>
+  </div>
+  <div class="card-offer w-100">
+    <% @offer.reviews.each do |review| %>
+        <li class="list-group-item">
+          <p><%= review.content %></p>
+          <div id="review-data">
+            Rating :<%= review.rating %>/10
+            Posted by : <%= review.user.username %> on : <%= review.created_at.strftime("%d %m %Y") %>
+          </div>
+        </li>
+    <% end %>
+  </div>
 </div>
