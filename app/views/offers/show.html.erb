@@ -6,45 +6,42 @@
     <div class="card-description">
       <p><%= @offer.description  %></p>
     </div>
-    <div class="card-info">
-
-    <div>
-      <p><%= @offer.localisation  %></p>
-    </div>
-    <div>
-      <p><%= @offer.discipline  %></p>
-    </div>
-
-    <div>
-      <%= cl_image_tag @offer.user.photo.key, height: 200, width: 200, crop: :fill %>
-    </div>
-    <div>
-      <p><%= @offer.user.username  %></p>
-    </div>
-    <div>
-      <p>Number of courses :</p>
-      <p><%= Offer.where(user_id: current_user).count  %></p>
-    </div>
-    <!-- <div>
-      <p>Number of reviews > 7 :</p>
-      <%# <p><%= Review.where(["offer_id = @offer.id, rating >= 7"]).count  %></p> %>
-    </div> -->
-    <div>
-      <p><%= @offer.user.email  %></p>
-    </div>
-    <div>
-      <%= link_to 'Leave a review', new_offer_review_path(@offer), class: "btn-purple" %>
-    </div>
-
-    <div class="card-link purple-color pt-2">
-      <%= link_to edit_offer_path(@offer) do  %>
-      <%= icon('fas', 'edit')  %> |
-      <% end %>
-      <%= link_to root_path do  %>
-      <%= icon('fas', 'home') %>
-      <% end %>
-    </div>
   </div>
+  <div class="card-info">
+      <div>
+        <p><%= @offer.localisation  %></p>
+      </div>
+      <div>
+        <p><%= @offer.discipline  %></p>
+      </div>
+
+      <div>
+        <%= cl_image_tag @offer.user.photo.key, height: 200, width: 200, crop: :fill %>
+      </div>
+      <div>
+        <p><%= @offer.user.username  %></p>
+      </div>
+      <div>
+        <p>Number of courses :</p>
+        <p><%= Offer.where(user_id: current_user).count  %></p>
+      </div>
+
+      <div>
+        <p><%= @offer.user.email  %></p>
+      </div>
+      <div>
+        <%= link_to 'Leave a review', new_offer_review_path(@offer), class: "btn-purple" %>
+      </div>
+
+      <div class="card-link purple-color pt-2">
+        <%= link_to edit_offer_path(@offer) do  %>
+        <%= icon('fas', 'edit')  %> |
+        <% end %>
+        <%= link_to root_path do  %>
+        <%= icon('fas', 'home') %>
+        <% end %>
+      </div>
+    </div>
 </div>
 
 <div class="card-offer w-100">
