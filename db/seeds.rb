@@ -2,7 +2,7 @@ require 'faker'
 
 puts "Creating 40 users"
 
-20.times do
+10.times do
   user = User.new(
     username: Faker::FunnyName.name,
     email: Faker::Internet.email,
@@ -14,7 +14,7 @@ puts "Creating 40 users"
     )
   user.save!
   puts "Creating 3 offer"
-  3.times do
+  2.times do
   offer = Offer.new(
     title: Faker::Game.title,
     description: Faker::Lorem.paragraph(sentence_count: 2),
@@ -26,14 +26,14 @@ puts "Creating 40 users"
   end
 end
 
-# puts "Creating review"
-# 100.times do
-#   review = Review.new(
-#     content: Faker::Lorem.paragraph,
-#     content: Faker::Lorem.paragraph(sentence_count: 2),
-#     rating: (1..10).to_a.sample,
-#     user_id: (1..20).to_a.sample,
-#     offer_id: (1..60).to_a.sample
-#   )
-#   review.save!
-# end
+puts "Creating review"
+100.times do
+  review = Review.new(
+    content: Faker::Lorem.paragraph,
+    content: Faker::Lorem.paragraph(sentence_count: 2),
+    rating: (1..10).to_a.sample,
+    user_id: (1..20).to_a.sample,
+    offer_id: (1..60).to_a.sample
+  )
+  review.save!
+end
