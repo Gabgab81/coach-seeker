@@ -7,5 +7,12 @@ Rails.application.routes.draw do
         get :my_courses
     end
       resources :reviews, only: [ :new, :create ]
+      resources :coachings, only: [:new, :create, :show] do
+        member do
+          patch :accept
+          patch :refuse
+        end
+      end
   end
+  
 end
