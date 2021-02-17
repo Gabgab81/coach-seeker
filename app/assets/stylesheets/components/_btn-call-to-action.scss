@@ -1,14 +1,18 @@
 .btn-purple {
   text-weight: bolder;
   color: white;
-  background-color: #916FFB;
+  background-color: $violet-clair;
   padding: 12px 24px;
   border-radius: 8px;
   margin-top: 16px;
   transition: 0.3s;
   &:hover {
     text-decoration: none;
-    background-color: #5737bf;
+    background-color: $violet-fonce;
     color: white;
   }
+}
+
+.purple-color {
+  color: $violet-clair;
 }

@@ -33,12 +33,12 @@
       <p><%= @offer.user.email  %></p>
     </div>
     <div>
-      <%= link_to 'Leave a review', new_offer_review_path(@offer) %>
+      <%= link_to 'Leave a review', new_offer_review_path(@offer), class: "btn-purple" %>
     </div>
 
-    <div class="card-link">
+    <div class="card-link purple-color pt-2">
       <%= link_to edit_offer_path(@offer) do  %>
-      <%= icon('fas', 'edit') %> |
+      <%= icon('fas', 'edit')  %> |
       <% end %>
       <%= link_to root_path do  %>
       <%= icon('fas', 'home') %>
@@ -47,12 +47,14 @@
   </div>
 </div>
 
-<div class="container card-offer">
+<div class="card-offer w-100">
   <% @offer.reviews.each do |review| %>
       <li class="list-group-item">
-        <%= review.content %>
-         Rating :<%= review.rating %>/10
-        Posted by : <%= review.user.username %> on : <%= review.created_at.strftime("%d %m %Y") %>
+        <p><%= review.content %></p>
+        <div id="review-data">
+          Rating :<%= review.rating %>/10
+          Posted by : <%= review.user.username %> on : <%= review.created_at.strftime("%d %m %Y") %>
+        </div>
       </li>
   <% end %>
 </div>
