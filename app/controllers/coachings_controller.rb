@@ -3,7 +3,6 @@ class CoachingsController < ApplicationController
   def show
     @coaching = Coaching.find(params[:id])
     @offer = Offer.find(@coaching.offer.id)
-    
   end
   
   def accept

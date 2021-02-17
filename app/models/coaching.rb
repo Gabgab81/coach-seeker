@@ -4,5 +4,5 @@ class Coaching < ApplicationRecord
 
   has_many :messages
 
-  enum validation: [:not_set, :accepted, :refused], _default: "not_set"
+  enum validation: [:not_set, :accepted, :refused]
 end
