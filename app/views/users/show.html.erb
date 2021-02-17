@@ -6,20 +6,20 @@
       </div>
       <div class="item2">
         <div class="input ">
-          <p>Email: <%= @user.email %> </p> 
+          <p>Email: <%= @user.email %> </p>
         </div>
         <div class="input">
-          <p>Address: <%= @user.address %> </p> 
+          <p>Address: <%= @user.address %> </p>
         </div>
         <div class="input">
-          <p>Phone number: <%= @user.phone %> </p> 
+          <p>Phone number: <%= @user.phone %> </p>
         </div>
         <div class="input">
-          <p>Birthday date: <%= @user.birth_date %> </p> 
+          <p>Birthday date: <%= @user.birth_date %> </p>
         </div>
         <div class="input">
-          <p>Votre présentation: </p> 
-          <p><%= @user.presentation %> </p> 
+          <p>Votre présentation: </p>
+          <p><%= @user.presentation %> </p>
         </div>
         <div class="input profile-edit-home-logout">
           <%= link_to 'Edit', edit_user_registration_path(@user) %>
@@ -27,8 +27,14 @@
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </div>
       </div>
-      <div class="item3">seances</div>
+      <div class="item3"> Vos 5 prochaines seances :
+        <% @coachings.each do |coaching| %>
+            <li class="list-group-item">
+              <p><%= coaching.offer.title %> le <%= coaching.coaching_date.strftime("%d %m %Y") %> à <%= coaching.offer.localisation  %></p>
+            </li>
+        <% end %>
+      </div>
       <div class="item4">reviews</div>
     </div>
-  </div> 
+  </div>
 </div>
