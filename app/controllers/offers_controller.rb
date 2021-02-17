@@ -3,7 +3,7 @@ class OffersController < ApplicationController
   def index
     @offers = Offer.all
   end
-  
+
   def new
     @offer = Offer.new
   end
@@ -24,6 +24,7 @@ class OffersController < ApplicationController
   end
 
   def update
+    # sports_list = Offer.sports_list
     @offer = Offer.find(params[:id])
     if @offer.update(offer_params)
       redirect_to offer_path(@offer)

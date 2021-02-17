@@ -13,13 +13,27 @@
     <div>
       <p><%= @offer.discipline  %></p>
     </div>
+
+    <div>
+      <%= cl_image_tag @offer.user.photo.key, height: 200, width: 200, crop: :fill %>
+    </div>
+    <div>
+      <p><%= @offer.user.username  %></p>
+    </div>
+    <div>
+      <p>Number of courses :</p>
+      <p><%= Offer.where(user_id: current_user).count  %></p>
+    </div>
+    <!-- <div>
+      <p>Number of reviews > 7 :</p>
+      <%# <p><%= Review.where(["offer_id = @offer.id, rating >= 7"]).count  %></p> %>
+    </div> -->
     <div>
       <p><%= @offer.user.email  %></p>
     </div>
     <div>
-      <p><%= @offer.discipline  %></p>
+      <%= link_to 'Leave a review', new_offer_review_path(@offer) %>
     </div>
-
 
     <div class="card-link">
       <%= link_to edit_offer_path(@offer) do  %>
@@ -31,5 +45,14 @@
     </div>
     </div>
   </div>
+</div>
 
-
+<div class="container card-offer">
+  <% @offer.reviews.each do |review| %>
+      <li class="list-group-item">
+        <%= review.content %>
+         Rating :<%= review.rating %>/10
+        Posted by : <%= review.user.username %> on : <%= review.created_at.strftime("%d %m %Y") %>
+      </li>
+  <% end %>
+</div>
