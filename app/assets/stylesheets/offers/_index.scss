@@ -1,2 +1,61 @@
-// Import page-specific CSS files here.
-@import "show";
+.title-index{
+text-align: center;
+font-weight: bold;
+margin-top: 16px;
+font-size: 40px;
+color: rgb(75, 75, 75);
+}
+
+.card-index{
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  margin: 16px;
+  border-radius: 0 24px 0 0;
+
+}
+
+.info-card-index{
+  padding: 16px;
+  position: relative;
+  .btn-index{
+    position: absolute;
+    bottom: 15px;
+  }
+
+
+}
+
+.image-card-index{
+  object-fit: cover;
+
+}
+
+.title-offer{
+  font-weight: bold;
+  color: #5737BF;
+
+}
+
+.discipline-index{
+  color: #916FFB
+
+}
+
+.localisation-index{
+  color: rgb(75, 75, 75);
+  font-weight: lighter;
+
+}
+
+.description-index{
+  color: rgb(75, 75, 75);
+  font-weight: lighter;
+
+}
+
+.btn-index{
+  height: 30px;
+}
+
+
