@@ -3,4 +3,6 @@ class Coaching < ApplicationRecord
   belongs_to :offer
 
   has_many :messages
+
+  enum validation: [:not_set, :accepted, :refused], _default: "not_set"
 end
