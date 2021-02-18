@@ -6,7 +6,8 @@ class Offer < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
   has_rich_text :description
-
+  geocoded_by :localisation
+  after_validation :geocode, if: :will_save_change_to_localisation?
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, presence: true
   validates :localisation, presence: true, length: { maximum: 50 }
