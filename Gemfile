@@ -37,6 +37,7 @@ gem "select2-rails"
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'geocoder'
+gem "pundit"
 
 group :development, :test do
   gem 'pry-byebug'

@@ -1,7 +1,6 @@
 class OffersController < ApplicationController
-
   def index
-    @offers = Offer.all
+    @offers = policy_scope(Offer).order(created_at: :desc)
   end
 
   def new
@@ -10,8 +9,8 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
-    @user = User.find(current_user.id)
-    @offer.user = @user
+    @offer.user = current_user
+    authorize @offer
     if @offer.save
       redirect_to offer_path(@offer)
     else
@@ -21,6 +20,7 @@ class OffersController < ApplicationController
 
   def edit
     @offer = Offer.find(params[:id])
+    authorize @offer
   end
 
   def update
@@ -35,10 +35,12 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    authorize @offer
   end
 
   def my_courses
     @offers = Offer.where(user_id: current_user.id)
+    authorize @offers
     render :index
   end
 
