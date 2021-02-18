@@ -9,4 +9,12 @@ class CoachingPolicy < ApplicationPolicy
     return true
   end
 
+  def refuse?
+    return true
+  end
+
+  def accept?
+    return true
+  end
+
 end

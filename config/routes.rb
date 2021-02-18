@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:new, :create]
     end
   end
-end
+
   namespace :my do
     resources :offers, only: [:index]
   end

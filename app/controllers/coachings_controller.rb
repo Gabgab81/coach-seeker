@@ -12,6 +12,7 @@ class CoachingsController < ApplicationController
   def accept
     @coaching = Coaching.find(params[:id])
     @coaching.validation = 1
+    authorize @coaching
     @coaching.save
     redirect_to offer_coaching_path(@coaching.offer, @coaching)
   end
@@ -19,6 +20,7 @@ class CoachingsController < ApplicationController
   def refuse
     @coaching = Coaching.find(params[:id])
     @coaching.validation = 2
+    authorize @coaching
     @coaching.save
     redirect_to offer_coaching_path(@coaching.offer, @coaching)
   end

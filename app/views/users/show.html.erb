@@ -22,11 +22,11 @@
           <p><%= @user.presentation %> </p>
         </div>
         <div class="input profile-edit-home-logout">
-          <% if policy(@user).edit? %>
-            <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn-purple" %>
-          <% end %>
+
+          <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn-purple" %>
           <%= link_to 'home', root_path, class: "btn-purple"  %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-purple"  %>
+
         </div>
       </div>
       <div class="item3"> Your next 5 coachings :
