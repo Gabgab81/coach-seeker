@@ -6,13 +6,31 @@ class Offer < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
   has_rich_text :description
-
+  geocoded_by :localisation
+  after_validation :geocode, if: :will_save_change_to_localisation?
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, presence: true
   validates :localisation, presence: true, length: { maximum: 50 }
 
   validates :discipline, presence: true, inclusion: { in: DISC,
     message: "%{value} is not a valid discipline" }
+
+  after_save :update_text_description
+
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_description,
+    against: [:text_description, :title, :localisation ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+
+  def update_text_description 
+    desc = ActionController::Base.helpers.strip_tags(self.description.to_s.strip)
+    unless desc == text_description
+      self.update(text_description: desc)
+    end
+  end
 
   def self.sports_list
   #   # ["Volley", "Poker", "Belotte"]
@@ -22,4 +40,6 @@ class Offer < ApplicationRecord
     end
     sport_array
   end
+
+  
 end

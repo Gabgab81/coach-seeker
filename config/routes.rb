@@ -6,13 +6,16 @@ Rails.application.routes.draw do
     collection do
       get :my_courses
     end
-  resources :reviews, only: [ :new, :create ]
-  resources :coachings, only: [:new, :create, :show] do
-    member do
-      patch :accept
-      patch :refuse
+    resources :reviews, only: [ :new, :create ]
+    resources :coachings, only: [:new, :create, :show] do
+      member do
+        patch :accept
+        patch :refuse
+      end
+      resources :messages, only: [:new, :create]
     end
-    resources :messages, only: [:new, :create]
   end
-end
+  namespace :my do
+    resources :users, only: [ :show ]
+  end
 end
