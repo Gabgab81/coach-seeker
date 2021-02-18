@@ -3,10 +3,10 @@ class OffersController < ApplicationController
     @offers = policy_scope(Offer).order(created_at: :desc)
 
     @offers = Offer.all
-    if params[:request] && !(params[:request][:search].blank?)
+    if params[:request] && ! (params[:request][:search].blank?)
       @offers = Offer.search_by_title_and_description(params[:request][:search])
     end
-    if params[:request] && !(params[:request][:discipline].blank?)
+    if params[:request] && ! (params[:request][:discipline].blank?)
       sql_query = " \
         offers.discipline ILIKE :discipline
       "
@@ -17,6 +17,7 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+    authorize @offer
   end
 
   def create
@@ -50,11 +51,10 @@ class OffersController < ApplicationController
     authorize @offer
   end
 
-  def my_courses
-    @offers = Offer.where(user_id: current_user.id)
-    authorize @offers
-    render :index
-  end
+  # def my_courses
+  #   @offers = Offer.where(user_id: current_user.id)
+  #   # render :index
+  # end
 
   private
 

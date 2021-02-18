@@ -2,6 +2,7 @@ class CoachingsController < ApplicationController
 
   def show
     @coaching = Coaching.find(params[:id])
+    authorize @coaching
     @offer = Offer.find(@coaching.offer.id)
     @message = Message.new
     @messages = Message.where(coaching_id: @coaching.id)
@@ -27,10 +28,12 @@ class CoachingsController < ApplicationController
     @user_offer = User.find(@offer.user_id)
     @user = current_user
     @coaching = Coaching.new
+    authorize @coaching
   end
 
   def create
     @coaching = Coaching.new(coaching_params)
+    authorize @coaching
     @offer = Offer.find(params[:offer_id])
     @coaching.offer = @offer
     @coaching.user = current_user
