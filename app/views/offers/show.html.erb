@@ -46,16 +46,21 @@
   </div>
   <div class="title-review">
     <h3>Review</h3>
-  </div>
-  <div class="card-offer w-100">
+
     <% @offer.reviews.each do |review| %>
-        <li class="list-group-item">
+        <div class="comment">
+         <div class="review-top">
+          <p class="user-review mb-0"><%= review.user.username.capitalize %></p>
+          <p class="date-review mb-0"><%= review.created_at.strftime("%d %m %Y") %></p>
+        </div>
           <p><%= review.content %></p>
           <div id="review-data">
-            Rating :<%= review.rating %>/10
-            Posted by : <%= review.user.username %> on : <%= review.created_at.strftime("%d %m %Y") %>
+           <%= review.rating %>/10
+
           </div>
-        </li>
+        </div>
     <% end %>
+  </div>
+  </div>
   </div>
 </div>
