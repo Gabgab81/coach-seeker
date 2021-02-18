@@ -3,7 +3,11 @@ class OffersController < ApplicationController
     @offers = policy_scope(Offer).order(created_at: :desc)
 
     @offers = Offer.all
+<<<<<<< HEAD
     if params[:request] && ! (params[:request][:search].blank?)
+=======
+    if params[:request] && !(params[:request][:search].blank?)
+>>>>>>> master
       @offers = Offer.search_by_title_and_description(params[:request][:search])
     end
     if params[:request] && ! (params[:request][:discipline].blank?)
