@@ -15,6 +15,23 @@ class Offer < ApplicationRecord
   validates :discipline, presence: true, inclusion: { in: DISC,
     message: "%{value} is not a valid discipline" }
 
+  after_save :update_text_description
+
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_description,
+    against: [:text_description, :title, :localisation ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+
+  def update_text_description 
+    desc = ActionController::Base.helpers.strip_tags(self.description.to_s.strip)
+    unless desc == text_description
+      self.update(text_description: desc)
+    end
+  end
+
   def self.sports_list
   #   # ["Volley", "Poker", "Belotte"]
     sport_array = []
@@ -23,4 +40,6 @@ class Offer < ApplicationRecord
     end
     sport_array
   end
+
+  
 end

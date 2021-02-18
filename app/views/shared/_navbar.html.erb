@@ -7,6 +7,14 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div class="search-nav-bar">
+    <%= simple_form_for :request, url: offers_path, method: :get  do |f| %>
+        <%= f.input :search %>
+        <%= f.input :discipline, collection: Offer.sports_list, prompt: "Choose a sport" %>
+        <%= f.submit "search", class: "btn-purple" %>
+      <% end %>
+  </div>
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
