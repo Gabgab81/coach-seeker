@@ -14,8 +14,15 @@
           <div class="text-card-index">
             <h3 class="title-offer"><%= offer.title %></h3>
             <span class="localisation-index"><%= offer.localisation.capitalize %></span>
-            <p class="discipline-index"><%= offer.discipline %></p>
-            <span class="description-index"><%= offer.description %></span>
+            <span class="discipline-index"><%= offer.discipline %></span>
+            <br>
+            <span class="description-index">
+              <%if strip_tags(offer.description.to_s).size < 50  %>
+                <%= offer.description %>
+              <% else %>
+                <%= strip_tags(offer.description.to_s).truncate(150) %>...
+              <% end %>
+            </span>
           </div>
           <div class="btn-index">
             <%= link_to "See more", offer_path(offer), class: "btn-purple"  %>
