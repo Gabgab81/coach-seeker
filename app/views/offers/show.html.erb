@@ -20,11 +20,11 @@
         <%= avatar_url(@offer) %>
       </div>
       <div>
-        <%= link_to @offer.user.username, my_user_path(@offer)  %>
+        <%= link_to @offer.user.username, my_user_path(@offer.user)  %>
       </div>
       <div>
         <p>Number of courses :</p>
-        <p><%= Offer.where(user_id: current_user).count  %></p>
+        <p><%= Offer.where(user_id: @offer.user).count  %></p>
       </div>
 
       <div>

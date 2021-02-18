@@ -2,7 +2,7 @@
   <div class="container">
     <div class="grid-container">
       <div class="item1">
-        <h2>Bonjour <%= @user.username %>, comment allez vous?  </h2>
+        <h2> <%= @user.username %></h2>
       </div>
       <div class="item2">
         <div class="input ">
@@ -29,12 +29,13 @@
       </div>
       <div class="item3"> His 5 last offers :
         <% @offers.each do |offer| %>
-              <p><%= offer.title %> à <%= offer.localisation  %></p>
+
+              <p><%= link_to offer.title, offer_path(offer)  %> à <%= offer.localisation  %></p>
         <% end %>
       </div>
       <div class="item4">5 last reviews of yours offers :
         <% @reviews.each do |review| %>
-              <p><%= review.offer.title %> le <%= review.created_at.strftime("%d %m %Y") %> par <%= review.user.username  %></p>
+              <p> <%= review.rating %>/10 <%= review.offer.title %> le <%= review.created_at.strftime("%d %m %Y") %> par <%= review.user.username  %></p>
         <% end %></div>
     </div>
   </div>
