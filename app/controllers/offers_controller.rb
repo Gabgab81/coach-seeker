@@ -1,6 +1,18 @@
 class OffersController < ApplicationController
   def index
     @offers = policy_scope(Offer).order(created_at: :desc)
+
+    @offers = Offer.all
+    if params[:request] && !(params[:request][:search].blank?)
+      @offers = Offer.search_by_title_and_description(params[:request][:search])
+    end
+    if params[:request] && !(params[:request][:discipline].blank?)
+      sql_query = " \
+        offers.discipline ILIKE :discipline
+      "
+      @offers = @offers.where(sql_query, discipline: "%#{params[:request][:discipline]}%")
+
+    end
   end
 
   def new
