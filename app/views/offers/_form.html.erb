@@ -2,6 +2,7 @@
   <div class="container container-form p-3">
   <%= simple_form_for(offer) do |f| %>
     <%= f.input :title %>
+    Description *
     <%= f.rich_text_area :description %>
     <%= f.input :localisation %>
     <%# <%= f.input :discipline, collection: ["Volley", "Poker", "Belotte"], prompt: "Choose a sport" %>
