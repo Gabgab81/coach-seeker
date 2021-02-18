@@ -1,0 +1,8 @@
+<div class="container">
+  <h2 class="title-index">All my coachings</h2>
+
+  <% @coachings.each do |coaching| %>
+        <p><%= link_to coaching.offer.title, offer_coaching_path(coaching.offer, coaching)  %> <%= coaching.offer.title %> le <%= coaching.coaching_date.strftime("%d %m %Y") %> à <%= coaching.offer.localisation  %></p>
+  <% end %>
+
+</div>
