@@ -14,6 +14,14 @@ class Offer < ApplicationRecord
   validates :discipline, presence: true, inclusion: { in: DISC,
     message: "%{value} is not a valid discipline" }
 
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_description,
+    against: [:description, :title ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+
   def self.sports_list
   #   # ["Volley", "Poker", "Belotte"]
     sport_array = []
@@ -22,4 +30,6 @@ class Offer < ApplicationRecord
     end
     sport_array
   end
+
+  
 end

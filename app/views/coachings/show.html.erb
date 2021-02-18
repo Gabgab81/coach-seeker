@@ -14,7 +14,7 @@
   <% end %>
 <% elsif @coaching.accepted? %>
   <p>The offre: <%= @offer.title %> is accepted</p>
-<% elsif @coaching.refused? === 2 %>
+<% elsif @coaching.refused? %>
   <p>The offre: <%= @offer.title %> is refused</p>
 <% end %>  
 <%= link_to 'Back', root_path %>
