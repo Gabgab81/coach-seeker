@@ -27,8 +27,15 @@
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-purple"  %>
         </div>
       </div>
-      <div class="item3">seances</div>
-      <div class="item4">reviews</div>
+      <div class="item3"> Your next 5 coachings :
+        <% @coachings.each do |coaching| %>
+              <p><%= coaching.offer.title %> le <%= coaching.coaching_date.strftime("%d %m %Y") %> à <%= coaching.offer.localisation  %></p>
+        <% end %>
+      </div>
+      <div class="item4">5 last reviews of yours offers :
+        <% @reviews.each do |review| %>
+              <p><%= review.offer.title %> le <%= review.created_at.strftime("%d %m %Y") %> par <%= review.user.username  %></p>
+        <% end %></div>
     </div>
   </div>
 </div>

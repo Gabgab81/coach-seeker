@@ -1,6 +1,6 @@
-<h1>show de coaching</h1>
-
-<% if @coaching.validation === 0 %>
+<div class="container">
+  <h1>show de coaching</h1>
+<% if @coaching.not_set? %>
   <p>The offre: <%= @offer.title %> is waiting for validation</p>
   <% if @offer.user_id == current_user.id %>
     <%= link_to "Accept",
@@ -12,9 +12,31 @@
                   method: :patch,
                   data: { confirm: "Are you sure?" }, class: "btn-purple" %>
   <% end %>
-<% elsif @coaching.validation === 1 %>
-  <p>The offre: <%= @offer.title %> is validate</p>
-<% elsif @coaching.validation === 2 %>
-  <p>The offre: <%= @offer.title %> is not validate</p>
+<% elsif @coaching.accepted? %>
+  <p>The offre: <%= @offer.title %> is accepted</p>
+<% elsif @coaching.refused? === 2 %>
+  <p>The offre: <%= @offer.title %> is refused</p>
 <% end %>  
 <%= link_to 'Back', root_path %>
+
+</div>
+<div class="container">
+  <% @coaching.messages.each do |message| %>
+      <li class="list-group-item">
+        <p><%= message.content %></p>
+        <div id="message-data">
+          Posted by : <%= message.user.username %> on : <%= message.created_at.strftime("%d %m %Y") %>
+        </div>
+      </li>
+        <% end %>
+</div>
+
+<div class="container">
+  <div class="container-form p-3">
+    <%= simple_form_for [ @offer, @coaching, @message ] do |f| %>
+      <%= f.rich_text_area :content %>
+      <%= f.submit "Send your message", class: "btn-purple" %>
+    <% end %>
+  </div>
+</div>
+
