@@ -5,6 +5,7 @@ class CoachingsController < ApplicationController
     @offer = Offer.find(@coaching.offer.id)
     @message = Message.new
     @messages = Message.where(coaching_id: @coaching.id)
+
   end
 
   def accept
