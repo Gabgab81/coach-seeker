@@ -20,7 +20,7 @@
         <%= avatar_url(@offer) %>
       </div>
       <div>
-        <%= link_to @offer.user.username, my_user_path(@offer)  %>
+        <%= link_to @offer.user.username, my_user_path(@offer.user)  %>
       </div>
       <div>
         <p>Number of courses :</p>
