@@ -3,9 +3,13 @@
     <h1> <%= @offer.title %></h1>
   </div>
   <div class="card-text">
-    <div class="card-description">
-      <p><%= @offer.description  %></p>
-      <%= link_to 'Select offer', new_offer_coaching_path(@offer) %>
+    <div class="card-description d-flex flex-column justify-content-between">
+      <div>
+        <p><%= @offer.description  %></p>
+      </div>
+      <div>
+        <%= link_to 'Book this offer !!', new_offer_coaching_path(@offer), class: "btn-purple-validate"%>
+      </div>
     </div>
 
   <div class="card-info">
