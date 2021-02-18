@@ -1,0 +1,41 @@
+<div class="background_img">
+  <div class="container">
+    <div class="grid-container">
+      <div class="item1">
+        <h2>Bonjour <%= @user.username %>, comment allez vous?  </h2>
+      </div>
+      <div class="item2">
+        <div class="input ">
+          <p>Email: <%= @user.email %> </p>
+        </div>
+        <div class="input">
+          <p>Address: <%= @user.address %> </p>
+        </div>
+        <div class="input">
+          <p>Phone number: <%= @user.phone %> </p>
+        </div>
+        <div class="input">
+          <p>Birthday date: <%= @user.birth_date %> </p>
+        </div>
+        <div class="input">
+          <p>Votre présentation: </p>
+          <p><%= @user.presentation %> </p>
+        </div>
+        <div class="input profile-edit-home-logout">
+          <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn-purple" %>
+          <%= link_to 'home', root_path, class: "btn-purple"  %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-purple"  %>
+        </div>
+      </div>
+      <div class="item3"> His 5 last offers :
+        <% @offers.each do |offer| %>
+              <p><%= offer.title %> à <%= offer.localisation  %></p>
+        <% end %>
+      </div>
+      <div class="item4">5 last reviews of yours offers :
+        <% @reviews.each do |review| %>
+              <p><%= review.offer.title %> le <%= review.created_at.strftime("%d %m %Y") %> par <%= review.user.username  %></p>
+        <% end %></div>
+    </div>
+  </div>
+</div>
