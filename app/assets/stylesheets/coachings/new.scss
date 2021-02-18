@@ -1,0 +1,30 @@
+.container-form{
+  h2{
+    span{
+      font-size: 15px;
+    }
+  }
+  p{
+    text-align: center;
+  }
+}
+
+.inside-form-coaching{
+  padding: 20px;
+  .btn-purple{
+    text-align: center;
+  }
+}
+
+.input-date-coaching{
+  // background-color: rgba(0, 0, 0, 0.144);
+  padding: 3px;
+  padding-top: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.03);
+  border-radius: 20px;
+}
+
+.input-submit-coaching{
+  display: flex;
+  justify-content: center;
+}

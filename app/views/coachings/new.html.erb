@@ -1,11 +1,18 @@
-
+<div class="background_img">
 <div class="container">
   <div class="container-form">
-    <h1><%= @offer.title %> from the user <%= @user_offer.username %></h1>
-    <p>Choose the date where you are available</p>
-    <%= simple_form_for [ @offer, @coaching ] do |f| %>
-      <%= f.input :coaching_date %>
-      <%= f.submit "Submit your date", class: "btn-purple" %>
-    <% end %>
+    <h2><%= @offer.title %> <span>( by <%= @user_offer.username %> )</span></h2>
+    <div class="inside-form-coaching">
+      <p>Choose the date where you are available</p>
+      <%= simple_form_for [ @offer, @coaching ] do |f| %>
+        <div class="input-date-coaching">
+          <%= f.input :coaching_date, label: false %>
+        </div>
+        <div class="input-submit-coaching">
+          <%= f.submit "Submit your date", class: "btn-purple" %>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
 </div>

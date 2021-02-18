@@ -1,42 +1,53 @@
+<div class="background_img">
 <div class="container">
-  <h1>show de coaching</h1>
-<% if @coaching.not_set? %>
-  <p>The offre: <%= @offer.title %> is waiting for validation</p>
-  <% if @offer.user_id == current_user.id %>
-    <%= link_to "Accept",
-                  accept_offer_coaching_path(@offer, @coaching),
-                  method: :patch,
-                  data: { confirm: "Are you sure?" }, class: "btn-purple" %>
-    <%= link_to "Refuse",
-                  refuse_offer_coaching_path(@offer, @coaching),
-                  method: :patch,
-                  data: { confirm: "Are you sure?" }, class: "btn-purple" %>
-  <% end %>
-<% elsif @coaching.accepted? %>
-  <p>The offre: <%= @offer.title %> is accepted</p>
-<% elsif @coaching.refused? %>
-  <p>The offre: <%= @offer.title %> is refused</p>
-<% end %>  
-<%= link_to 'Back', root_path %>
-
-</div>
-<div class="container">
-  <% @coaching.messages.each do |message| %>
-      <li class="list-group-item">
-        <p><%= message.content %></p>
-        <div id="message-data">
-          Posted by : <%= message.user.username %> on : <%= message.created_at.strftime("%d %m %Y") %>
+  <div class="container-form">
+    <h2>State of the reservation</h2>
+    <% if @coaching.not_set? %>
+      <p>The offre "<%= @offer.title %>" is waiting for validation.</p>
+      <% if @offer.user_id == current_user.id %>
+        <div class="link-accept-refuse">
+          <div class="accept-refuse">
+            <%= link_to "Accept",
+                          accept_offer_coaching_path(@offer, @coaching),
+                          method: :patch,
+                          data: { confirm: "Are you sure?" }, class: "btn-purple" %>
+          </div>
+          <div class="accept-refuse">
+            <%= link_to "Refuse",
+                          refuse_offer_coaching_path(@offer, @coaching),
+                          method: :patch,
+                          data: { confirm: "Are you sure?" }, class: "btn-purple" %>
+          </div>
         </div>
-      </li>
-        <% end %>
-</div>
+      <% end %>
+    <% elsif @coaching.accepted? %>
+      <p>The offre: <%= @offer.title %> is accepted.</p>
+    <% elsif @coaching.refused? %>
+      <p>The offre: <%= @offer.title %> is refused.</p>
+    <% end %>  
+    <hr>
+    <div class="container">
+      <% @coaching.messages.each do |message| %>
+          <li class="list-group-item">
+            <p><%= message.content %></p>
+            <div id="message-data">
+              Posted by : <%= message.user.username %> on : <%= message.created_at.strftime("%d %m %Y") %>
+            </div>
+          </li>
+            <% end %>
+    </div>
 
-<div class="container">
-  <div class="container-form p-3">
-    <%= simple_form_for [ @offer, @coaching, @message ] do |f| %>
-      <%= f.rich_text_area :content %>
-      <%= f.submit "Send your message", class: "btn-purple" %>
-    <% end %>
+    <div class="container">
+      <div class="container-form p-3">
+        <%= simple_form_for [ @offer, @coaching, @message ] do |f| %>
+          <%= f.rich_text_area :content %>
+          <%= f.submit "Send your message", class: "btn-purple" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="show-coaching-back">
+      <%= link_to 'Back', root_path %>
+    </div>
   </div>
 </div>
-
+</div>
