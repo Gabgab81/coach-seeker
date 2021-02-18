@@ -2,7 +2,7 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
-    if params[:request] && !(params[:request][:search].blank?) 
+    if params[:request] && !(params[:request][:search].blank?)
       @offers = Offer.search_by_title_and_description(params[:request][:search])
     end
     if params[:request] && !(params[:request][:discipline].blank?)
@@ -10,7 +10,7 @@ class OffersController < ApplicationController
         offers.discipline ILIKE :discipline
       "
       @offers = @offers.where(sql_query, discipline: "%#{params[:request][:discipline]}%")
-    
+
     end
   end
 
