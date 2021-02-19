@@ -21,7 +21,7 @@
           <p>Votre présentation: </p>
           <p><%= @user.presentation %> </p>
         </div>
-        <div class="input profile-edit-home-logout">
+        <div class="profile-edit-home-logout">
           <% if policy(@user).edit? %>
             <%= link_to 'Edit', edit_user_registration_path(@user), class: "btn-purple" %>
           <% end %>
