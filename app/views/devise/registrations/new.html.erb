@@ -29,7 +29,8 @@
           </div>
 
           <div class="input">
-          <%= f.input :birth_date,
+          <%= f.input :birth_date, start_year: Date.today.year,
+                      end_year: Date.today.year-80,
                       required: true,
                       autofocus: true %>
           </div>
@@ -69,8 +70,11 @@
           <center><%= f.button :submit, "Sign up", class: "btn-purple" %></center>
         </div>
       <% end %>
-
-      <%= render "devise/shared/links" %>
+      <div class="">
+      <%- if controller_name != 'sessions' %>
+        <%= link_to "Log in", new_session_path(resource_name), class:"little-btn-login" %><br />
+      <% end %>
+      </div>
       </div>
     </div>
   </div>

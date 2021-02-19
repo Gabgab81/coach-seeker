@@ -47,3 +47,13 @@
     color: white;
   }
 }
+
+.little-btn-login{
+  color: black;
+  margin-left: 30px;
+  &:hover {
+    text-decoration: none;
+    // background-color: $violet-fonce;
+    
+  }
+}
