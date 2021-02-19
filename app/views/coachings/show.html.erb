@@ -24,7 +24,7 @@
       <p>The offre: <%= @offer.title %> is accepted.</p>
     <% elsif @coaching.refused? %>
       <p>The offre: <%= @offer.title %> is refused.</p>
-    <% end %>  
+    <% end %>
     <hr>
     <div class="container">
       <% @coaching.messages.each do |message| %>
@@ -39,7 +39,7 @@
 
     <div class="container">
       <div class="container-form p-3">
-        <%= simple_form_for [ @offer, @coaching, @message ] do |f| %>
+        <%= simple_form_for [ @offer, @coaching, @message ], remote: true do |f| %>
           <%= f.rich_text_area :content %>
           <%= f.submit "Send your message", class: "btn-purple" %>
         <% end %>

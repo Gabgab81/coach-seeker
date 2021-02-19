@@ -21,3 +21,8 @@
 @import "coachings/new";
 @import "coachings/show";
 @import "my/coachings/index";
+
+#page-content {
+  min-height: calc(100vh - 250px);
+  margin-top: 125px;
+}

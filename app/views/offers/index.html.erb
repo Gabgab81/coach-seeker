@@ -7,7 +7,7 @@
           <% if offer.photo.attached? %>
                 <%= cl_image_tag offer.photo.key, height: 300, width: 400, crop: :fill %>
               <% else %>
-                <%= image_tag("COACH SEEKER.png") %>
+                <%= image_tag("COACH SEEKER.png", size: "400x300") %>
               <% end %>
         </div>
         <div class="info-card-index">
@@ -21,7 +21,7 @@
               <%if strip_tags(offer.description.to_s).size < 50  %>
                 <%= offer.description %>
               <% else %>
-                <%= strip_tags(offer.description.to_s).truncate(150) %>...
+                <%= strip_tags(offer.description.to_s).truncate(250) %>...
               <% end %>
             </span>
           </div>
