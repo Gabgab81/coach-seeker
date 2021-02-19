@@ -39,12 +39,15 @@
 
 
 .bg-icon{
-  background-image: asset-url('loupe.png');
-  background-size: cover;
+  // background-image: asset-url('loupe.png');
+  // background-size: cover;
   background-color: $violet-clair;
-  padding: 6px 18px;
+  font-size: 26px;
+  padding: 0px 10px;
   margin-bottom: 16px;
   border-radius: 8px;
+  border: 0;
+  color: white;
   transition: 0.3s;
   &:hover {
     text-decoration: none;

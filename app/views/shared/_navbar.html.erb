@@ -16,7 +16,10 @@
     <div class="search-input-dicipline">
     <%= f.input :discipline, label: false, collection: Offer.sports_list, prompt: "Choose a sport" %>
     </div>
-    <%= f.submit "", class: "bg-icon" %>
+    <%#= f.submit do %>
+    <%= button_tag type: 'submit', class: "bg-icon" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
     </div>
   <% end %>
 
