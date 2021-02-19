@@ -1,11 +1,16 @@
 class OffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @offers = policy_scope(Offer).order(created_at: :desc)
+
     @offers = Offer.all
+
     if params[:request] && !(params[:request][:search].blank?)
+
       @offers = Offer.search_by_title_and_description(params[:request][:search])
     end
-    if params[:request] && !(params[:request][:discipline].blank?)
+    if params[:request] && ! (params[:request][:discipline].blank?)
       sql_query = " \
         offers.discipline ILIKE :discipline
       "
@@ -16,12 +21,13 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+    authorize @offer
   end
 
   def create
     @offer = Offer.new(offer_params)
-    @user = User.find(current_user.id)
-    @offer.user = @user
+    @offer.user = current_user
+    authorize @offer
     if @offer.save
       redirect_to offer_path(@offer)
     else
@@ -31,6 +37,7 @@ class OffersController < ApplicationController
 
   def edit
     @offer = Offer.find(params[:id])
+    authorize @offer
   end
 
   def update
@@ -45,12 +52,13 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    authorize @offer
   end
 
-  def my_courses
-    @offers = Offer.where(user_id: current_user.id)
-    render :index
-  end
+  # def my_courses
+  #   @offers = Offer.where(user_id: current_user.id)
+  #   # render :index
+  # end
 
   private
 

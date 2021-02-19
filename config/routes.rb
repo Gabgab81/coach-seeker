@@ -15,10 +15,17 @@ Rails.application.routes.draw do
       resources :messages, only: [:new, :create]
     end
   end
+
+  namespace :my do
+    resources :offers, only: [:index]
+  end
+
   namespace :my do
     resources :users, only: [ :show ]
   end
+
   namespace :my do
     resources :coachings, only: [ :index ]
   end
+  
 end
