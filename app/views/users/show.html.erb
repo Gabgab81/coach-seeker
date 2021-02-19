@@ -31,7 +31,7 @@
       </div>
       <div class="item3"> Your next 5 coachings :
         <% @coachings.each do |coaching| %>
-              <p><%= coaching.offer.title %> le <%= coaching.coaching_date.strftime("%d %m %Y") %> à <%= coaching.offer.localisation  %></p>
+              <p><%= link_to coaching.offer.title, offer_coaching_path(coaching.offer, coaching)  %> le <%= coaching.coaching_date.strftime("%d %m %Y") %> à <%= coaching.offer.localisation  %> with <%= coaching.user.username  %></p>
         <% end %>
       </div>
       <div class="item4">5 last reviews of yours offers :
