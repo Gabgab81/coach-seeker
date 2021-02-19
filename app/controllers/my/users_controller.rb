@@ -2,6 +2,7 @@ class My::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    authorize @user
     @offers = Offer.where(user_id: params[:id]).last(5)
     @reviews = Review.where(user_id: params[:id]).last(5)
   end
