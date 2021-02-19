@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   namespace :my do
     resources :users, only: [ :show ]
   end
+  namespace :my do
+    resources :coachings, only: [ :index ]
+  end
 end
