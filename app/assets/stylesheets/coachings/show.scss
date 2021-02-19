@@ -13,3 +13,20 @@
   position: relative;
   padding-left: 20px;
 }
+
+.list-coaching-show-message{
+  list-style: none;
+  background-color: #c4b3fc57;
+  width: 70%;
+  padding: 5px;
+  padding-left: 20px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  span{
+    font-size: 11px;
+  }
+  p{
+    margin: 0;
+    
+  }
+}
