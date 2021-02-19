@@ -1,8 +1,26 @@
+<div class="background_img">
 <div class="container">
-  <h2 class="title-index">All my coachings</h2>
-
+  <div class="container-form" style="">
+  <h2 class="title-index">All the state of your reservation</h2>
+  <div class="coaching-list-detail">
   <% @coachings.each do |coaching| %>
-        <p><%= link_to coaching.offer.title, offer_coaching_path(coaching.offer, coaching)  %> <%= coaching.offer.title %> le <%= coaching.coaching_date.strftime("%d %m %Y") %> à <%= coaching.offer.localisation  %></p>
+    
+    <div class="coaching-list-detail-box">
+    <p><%= coaching.offer.title %> : <%= coaching.coaching_date.strftime("%d %m %Y") %> à <%= coaching.offer.localisation  %></p>
+    <p>State : 
+    <% if coaching.not_set? %>
+       waiting for validation.
+    <% elsif coaching.accepted? %>
+       accepted.
+    <% elsif coaching.refused? %>
+       refused.
+    <% end %>  
+    </p>
+    <p><%= link_to "Contact", offer_coaching_path(coaching.offer, coaching), class: "contact-coaching"  %></p>
+    </div>
+    <hr>
   <% end %>
-
+  </div>
+</div>
+</div>
 </div>
