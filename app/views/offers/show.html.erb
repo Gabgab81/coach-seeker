@@ -21,7 +21,7 @@
       </div>
 
        <div>
-        <%= avatar_url(@offer) %>
+        <%= avatar_url(@offer.user) %>
       </div>
       <div>
         <%= link_to @offer.user.username, my_user_path(@offer.user)  %>
