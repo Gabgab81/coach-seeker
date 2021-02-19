@@ -3,7 +3,7 @@
   <div class="container-form" style="">
   <h2 class="title-index">All the state of your reservation</h2>
   <div class="coaching-list-detail">
-  <% @coachings.each do |coaching| %>
+  <% @coachings.reverse.each do |coaching| %>
     
     <div class="coaching-list-detail-box">
     <p><%= coaching.offer.title %> : <%= coaching.coaching_date.strftime("%d %m %Y") %> à <%= coaching.offer.localisation  %></p>

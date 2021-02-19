@@ -27,14 +27,17 @@
     <% end %>
     <hr>
     <div class="container">
+      <div class="coaching-list-detail">
       <% @coaching.messages.each do |message| %>
-          <li class="list-group-item">
+          <li class="list-coaching-show-message">
+          <%# <li class="list-group-item"> %>
             <p><%= message.content %></p>
             <div id="message-data">
-              Posted by : <%= message.user.username %> on : <%= message.created_at.strftime("%d %m %Y") %>
+              <span> Posted by : <strong><%= message.user.username %></strong>  on : <%= message.created_at.strftime("%d %m %Y") %></span>
             </div>
           </li>
-            <% end %>
+      <% end %>
+      </div>
     </div>
 
     <div class="container">
