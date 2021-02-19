@@ -36,14 +36,14 @@
   text-weight: bolder;
   color: white;
   width: 100%;
-  background-color: $violet-clair;
+  background-color: #FFD166;
   padding: 12px 24px;
   border-radius: 8px;
   margin-top: 16px;
   transition: 0.3s;
   &:hover {
     text-decoration: none;
-    background-color: $violet-fonce;
+    background-color: #FFBC1F;
     color: white;
   }
 }
