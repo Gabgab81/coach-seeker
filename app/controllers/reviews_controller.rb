@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @offer = Offer.find(params[:offer_id])
     @review = Review.new
+    authorize @review
   end
 
   def create
@@ -9,6 +10,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @offer = Offer.find(params[:offer_id])
     @review.offer = @offer
+    authorize @review
     if @review.save!
       redirect_to offer_path(@offer)
     else
