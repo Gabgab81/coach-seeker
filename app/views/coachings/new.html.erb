@@ -6,7 +6,8 @@
       <p>Choose the date where you are available</p>
       <%= simple_form_for [ @offer, @coaching ] do |f| %>
         <div class="input-date-coaching">
-          <%= f.input :coaching_date, label: false %>
+          <%= f.input :coaching_date, label: false,start_year: Date.today.year+10 ,
+                      end_year: Date.today.year %>
         </div>
         <div class="input-submit-coaching">
           <%= f.submit "Submit your date", class: "btn-purple" %>
